@@ -3,42 +3,51 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+
 function App() {
 
-    const randomNumber = Math.floor(Math.random() * 100) + 1;
+  const [randomNumber, setRandomNumber] = useState(Math.floor(Math.random() * 100) + 1 );
 
-    const [userGuess, setUserGuess] = useState(0);
-    const [feedback, setFeedback] = useState('');
+  const [userGuess, setUserGuess] = useState("");
+  const [feedback, setFeedback] = useState("enter a number");
 
-    const handleInputChange = (e) => {
-        setUserGuess(e.target.value);
-    };
+  const handleUserGuess= (e) => {
+    setUserGuess(e.target.value)
+  }
 
-    const handleGuess = () => {
-        const guess = parseInt(userGuess, 10);
-        if (guess < 1 || guess > 100 || isNaN(guess)) {
-            setFeedback('Please enter a number between 1 and 100.');
-        } else if (guess < randomNumber) {
-            setFeedback('Too low! Try again.');
-        } else if (guess > randomNumber) {
-            setFeedback('Too high! Try again.');
-        } else {
-            setFeedback('Congratulations! You guessed the number!');
-        }
-    };
+  const handleFeedback= () => {
+    let guess = Number(userGuess) 
+    if(guess < randomNumber ) {
+      setFeedback(" too low, try again")
+    }
+    else if(guess> randomNumber) {
+      setFeedback(" too high, try again")
+    }
+    else
+    {
+      setFeedback( " 7 CROREEEEEEEEEEE!")
+    }
+  }
 
+  
 
-    console.log('Random Number (for testing purposes):', randomNumber);
 
   return (
     <>
-        <input className="card" type="number" onChange={handleInputChange} value={userGuess} />
-        <button className="card" onClick={handleGuess}>Guess</button>
-        <div className="card">{feedback}</div>
+      <div>Guess the number</div>
+      <div>
 
+      <input value={userGuess} onChange={handleUserGuess}  type="number" />
+      <button onClick={handleFeedback}>Guess</button>
+
+
+      </div>
+
+      <div onChange={handleFeedback} > {feedback} {console.log()} </div>
     </>
-
-  )
+  );
 }
+
+
 
 export default App
