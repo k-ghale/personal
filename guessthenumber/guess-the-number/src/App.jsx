@@ -3,7 +3,6 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-
 function App() {
 
   const [randomNumber, setRandomNumber] = useState(Math.floor(Math.random() * 100) + 1 );
@@ -28,10 +27,7 @@ function App() {
       setFeedback( " 7 CROREEEEEEEEEEE!")
     }
   }
-
   
-
-
   return (
     <>
       <div>Guess the number</div>
@@ -40,9 +36,7 @@ function App() {
       <input value={userGuess} onChange={handleUserGuess}  type="number" />
       <button onClick={handleFeedback}>Guess</button>
 
-
       </div>
-
       <div onChange={handleFeedback} > {feedback} {console.log()} </div>
     </>
   );
