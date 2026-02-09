@@ -19,8 +19,8 @@ def selectionSort(arr):
         new_arr.append(arr.pop(smallest))
     return new_arr
 
-#use the algorithm
 
+#use the algorithm
 arr = [2,3,4,5,1]
 
 print(findTheSmallest(arr))
