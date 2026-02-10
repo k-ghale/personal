@@ -1,8 +1,8 @@
-# grokkingAlgorithm
+# Grokking Algorithm 
 
 Practice implementations of algorithms from ***Grokking Algorithms* by Aditya Y. Bhargava**.
 
-This repository focuses on learning algorithms through clear, beginner‑friendly code examples.
+This repository focuses on learning algorithms through clear, code examples.
 
 ## Chapters
 
@@ -90,7 +90,6 @@ grokkingAlgorithm/
 ## Tech Stack
 
 * Python
-* No external dependencies
 
 ## Usage
 
