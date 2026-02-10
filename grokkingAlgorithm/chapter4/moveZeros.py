@@ -1,5 +1,4 @@
 
-
 def moveZeroes(nums):
 
     left = 0
@@ -15,3 +14,4 @@ num = [0,1,0,3,12]
 
 moveZeroes(num)
 print(num)
+
