@@ -30,3 +30,5 @@ num = 10
 
 countdown(num)
 print(fact(5))
+print(fact(2))
+print(fact(3))
