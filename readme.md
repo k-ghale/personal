@@ -4,7 +4,7 @@ Practice implementations of algorithms from ***Grokking Algorithms* by Aditya Y.
 
 This repository focuses on learning algorithms through clear, code examples.
 
-## Chapters
+## Chapters included
 
 ### Chapter 1: Binary Search
 
