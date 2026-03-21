@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# use this in terminal by adding your api key, and adding a prefix for it in tmux
+
 selected=$(printf "general\nbash\npython\njavascript\nrust\nexplain-code\noptimize" | fzf)
 
 [[ -z "$selected" ]] && exit 0
