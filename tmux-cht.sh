@@ -11,3 +11,4 @@ if [[ "$selected" =~ ^(javascript|python|java|nodejs)$ ]]; then
 fi
 
 tmux neww bash -c "curl $url; while true; do sleep 1; done"
+
