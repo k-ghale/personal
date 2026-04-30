@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # make sure tmux is installed
+
 selected=$(printf "javascript\npython\njava\nnodejs\nsed\nmove" | fzf)
 read -p "query: " query
 
