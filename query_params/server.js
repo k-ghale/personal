@@ -1,13 +1,36 @@
-
 import http from 'node:http'
+import {getDataFromDB} from './database/db.js' 
+import { sendJSONResponse } from './utils/sendJSONResponse.js'
+import { getDataByPathParams } from './utils/getDataByPathParams.js'
 
-const server = http.createServer((req, res) => {
 
-    const url_object = new URL(req.url, `http://${req.headers.host}`)
-    const query_object = Object.fromEntries(url_object.searchParams)
+const server = http.createServer(async(req, res) => {
 
-    console.log(query_object);
+    const destinations = await getDataFromDB();
 
+    if(req.url === '/api' && req.method==='GET'){
+        sendJSONResponse(res, 200, destinations)
+    }
+    else if (req.url.startsWith('api/continent') && req.method === 'GET'){
+        const continent = req.url.split('/').pop()
+        const filteredData = getDataFromParams(destinations, 'continent', continent)
+
+        sendJSONResponse(res, 200, filteredData)
+
+    }
+    else if (req.url.startsWith('api/country') && req.method === 'GET'){
+        const country = req.url.split('/').pop()
+        const filteredData = getDataFromParams(destinations, 'country', country)
+
+        sendJSONResponse(res, 200, filteredData)
+    }
+    else{
+        res.setHeader('Content-Type', 'application/json')
+        sendJSONResponse(res, 404, ({
+            error: "not found",
+            message: "The requested route does not exist"
+    }))   
+    }
 })
 
-server.listen(8000, () => console.log("Server listenning on port:8000"))
+server.listen(8000, () => console.log('server listenning on port 8000'))
