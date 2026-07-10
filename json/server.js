@@ -21,6 +21,13 @@ const server = http.createServer((req, res) => {
             return destinations.continent.toLowerCase() === continent.toLowerCase()
         })
         sendJSONresponse(res, 200, filterData) 
+    }
+    else if(req.url.startsWith('/api/country') && req.method === 'GET'){
+        const continent = req.url.split('/').pop()
+        const filterData = destinations.filter((destinations) => {
+            return destinations.continent.toLowerCase() === continent.toLowerCase()
+        })
+        sendJSONresponse(res, 200, filterData) 
     } 
     else {
         res.setHeader('Content-Type', 'application/json')
